@@ -1,4 +1,4 @@
 duply:
-  image: kurthuwig/duply:latest
+  image: cornelf/duply:latest
   volumes:
-   - /var/lib/docker/persistent-volumes/duply:/root
+   - /var/lib/docker/persistent-volumes/.duply:/root/.duply

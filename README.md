@@ -1,7 +1,7 @@
 Supported tags and respective `Dockerfile` links
 ================================================
 
- - [`latest` (*latest/Dockerfile*)](https://github.com/kurthuwig/docker-duply/blob/master/Dockerfile)
+ - [`latest` (*latest/Dockerfile*)](https://github.com/cornelf/docker-duply/blob/master/Dockerfile)
 
 What is duply?
 ==============
@@ -27,15 +27,38 @@ The corresponding docker command would be
 
     docker run \
       -it \
-      -v /path_to_directory/duply:/root
-      kurthuwig/duply:latest
+      --net=host
+      -e "SOURCE=<source_path>"
+      -v <source_path>:<source_path>:ro
+      -v <duply_configs_path>/.duply:/root/.duply
+      cornelf/duply:latest <profile> backup
 
-and the corresponding [docker-compose](http://docs.docker.com/compose/) (or [fig](http://www.fig.sh/)) file would be
+The duply config structure would have the following structure:
+
+```
+├── duply
+│   ├──── profile_x
+│   ├────────────── conf
+│   ├──── profile_y
+│   ├────────────── conf
+│   ├──── profile_z
+│   ├────────────── conf
+```
+
+The content of the `conf` file would be just:
+```
+GPG_PW='<GPG_PASSWORD>'
+TARGET='s3://s3-<region>.amazonaws.com/<bucket_destination>/'
+```
+
+Potentially both `GPG_PW` and `TARGET` can be passed as environment variables on `docker run`. In that case the `conf` files should be empty.
+
+The corresponding [docker-compose](http://docs.docker.com/compose/) (or [fig](http://www.fig.sh/)) file would be
 
     duply:
-      image: kurthuwig/duply:latest
+      image: cornelf/duply:latest
       volumes:
-       - /path_to_directory/duply:/root
+       - <duply_configs_path>/.duply:/root/.duply
 
 Environment variables
 =====================
@@ -140,3 +163,4 @@ Contact
 =======
 
 Kurt Huwig (@GMail.com: kurthuwig)
+Cornel Foltea cornel.foltea@gmail.com
