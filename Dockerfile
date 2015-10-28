@@ -6,6 +6,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     duply \
     ncftp \
     pwgen \
+    python-boto \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 ENV HOME /root
