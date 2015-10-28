@@ -36,13 +36,13 @@ The corresponding docker command would be
 The duply config structure would have the following structure:
 
 ```
-├── duply
-│   ├──── profile_x
-│   ├────────────── conf
-│   ├──── profile_y
-│   ├────────────── conf
-│   ├──── profile_z
-│   ├────────────── conf
+|--- duply
+|   |----- profile_x
+|   |--------------- conf
+|   |----- profile_y
+|   |--------------- conf
+|   |----- profile_z
+|   |--------------- conf
 ```
 
 The content of the `conf` file would be just:
