@@ -26,6 +26,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     && mv duply_1.10.1/duply /usr/bin/duply
 
 ENV HOME /root
+ENV SOURCE /source
 
 ENV KEY_TYPE      RSA
 ENV KEY_LENGTH    2048

@@ -33,6 +33,10 @@ The corresponding docker command would be
       -v <duply_configs_path>/.duply:/root/.duply
       cornelf/duply:latest <profile> backup
 
+E.g.:
+```
+docker run -it --net=host -v /data/profile:/source:ro -v /opt/provisioning/backups/.duply:/root/.duply cornelf/duply profile backup
+
 The duply config structure would have the following structure:
 
 ```
