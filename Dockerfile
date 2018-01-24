@@ -15,6 +15,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     python-setuptools \
     librsync-dev \
     curl \
+    awscli \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
     && cd /tmp \
     && curl -L https://launchpad.net/duplicity/0.7-series/0.7.05/+download/duplicity-0.7.05.tar.gz \
