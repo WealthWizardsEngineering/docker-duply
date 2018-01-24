@@ -167,5 +167,4 @@ More information can be found in the [duply documentation](http://duply.net/wiki
 Contact
 =======
 
-Kurt Huwig (@GMail.com: kurthuwig)
-Cornel Foltea cornel.foltea@gmail.com
+richard.marshall at wealthwizards.com
